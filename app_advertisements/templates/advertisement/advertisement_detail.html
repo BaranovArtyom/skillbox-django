@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ advertisement.title }}</title>
+</head>
+<body>
+    <h1>{{ advertisement.title }}</h1>
+    <p>{{ advertisement.description }}</p>
+    <p>Дата создания: {{  advertisement.created_at  }}</p>
+    <p>Колво просмотров: {{ advertisement.views_count }}</p></body>
+    <br>
+    <h3>Автор: {{ advertisement.author }}</h3>
+    <h4>Тел.: {{ advertisement.author.telephone }} | почта: {{ advertisement.author.email }}</h4>
+    <p>{{ advertisement.rubric }}</p>
+</html>

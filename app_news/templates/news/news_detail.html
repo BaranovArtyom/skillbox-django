@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ news }}</title>
+</head>
+<body>
+    <h1>{{ news }}</h1>
+    <p>{{ news.content }}</p>
+    {% if news.is_active %}
+        <p>Actual</p>
+    {% else %}
+        <p>Not actual</p>
+    {% endif %}
+    <p>Created at: {{ news.created_at }}</p>
+    <br>
+    <hr></hr>
+    {% for item in comments %}
+        <p>{{ item.text }}</p>
+        <p>{{ item.user_name }}</p>
+        <hr/>
+    {% endfor %}
+    <a href="edit"><button>Edit</button></a>
+    <a href="../"><button>Back</button></a>
+</body>
+</html>

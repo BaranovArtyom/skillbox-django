@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News</title>
+</head>
+<body>
+    {% if news_list %}
+        {% for item in news_list %}
+            <li><a href="{{ item.id }}">{{ item }}</a></li>
+        {% endfor %}
+    {% else %}
+        <h2>No news :/</h2>
+    {% endif %}
+
+    <a href="add-news/">
+        <button>Add news</button>
+    </a>
+
+</body>
+</html>
