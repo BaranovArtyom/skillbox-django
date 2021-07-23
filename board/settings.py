@@ -132,6 +132,6 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = '/' # Куда попасть после логина.
+LOGIN_REDIRECT_URL = '/news' # Куда попасть после логина.
 
 SESSION_COOKIE_AGE = 30 * 24 * 60 * 60 # Время жизни кука.

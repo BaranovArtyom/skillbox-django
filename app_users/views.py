@@ -38,7 +38,7 @@ def login_view(request):
     return render(request, 'users/login.html', context=context)
 
 
-class AnotherLoginView(LogoutView):
+class AnotherLoginView(LoginView):
     template_name = 'users/login.html'
 
 

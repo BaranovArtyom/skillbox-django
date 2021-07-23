@@ -14,10 +14,16 @@
     {% endif %}
     <p>Created at: {{ news.created_at }}</p>
     <br>
-    <hr></hr>
+    <hr/>
     {% for item in comments %}
         <p>{{ item.text }}</p>
-        <p>{{ item.user_name }}</p>
+        <p>
+        {% if item.user %}
+            {{ item.user.username}}
+        {% else %}
+            {{ item.user_name }}
+        {% endif %}
+        </p>
         <hr/>
     {% endfor %}
     <a href="edit"><button>Edit</button></a>

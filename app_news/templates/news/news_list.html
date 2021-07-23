@@ -5,17 +5,45 @@
     <title>News</title>
 </head>
 <body>
-    {% if news_list %}
-        {% for item in news_list %}
-            <li><a href="{{ item.id }}">{{ item }}</a></li>
-        {% endfor %}
-    {% else %}
-        <h2>No news :/</h2>
-    {% endif %}
+<div class="container" style="margin: 40px">
+    <header style="height: auto">
+        <div style="margin-right: auto; display: inline-block; ">
+            <h1>My news site</h1>
+        </div>
+        <div style=" display: inline-block; float: right">
+            {% if not request.user.is_authenticated %}
+                <h3>
+                    <a href="{% url 'login_news' %}">
+                        <button>
+                            Log in
+                        </button>
+                    </a>
+                </h3>
+            {% else %}
+                <h3>
+                   <p>Hello, {{ request.user.username }}</p>
+                    <a href="{% url 'logout_news' %}">
+                        <button>
+                            Log out
+                        </button>
+                    </a>
+                </h3>
+            {% endif %}
+        </div>
+    </header>
+    <div class="main">
+        {% if news_list %}
+            {% for item in news_list %}
+                <li><a href="{{ item.id }}">{{ item }}</a></li>
+            {% endfor %}
+        {% else %}
+            <h2>No news :/</h2>
+        {% endif %}
 
-    <a href="add-news/">
-        <button>Add news</button>
-    </a>
-
+        <a href="add-news/">
+            <button>Add news</button>
+        </a>
+    </div>
+</div>
 </body>
 </html>

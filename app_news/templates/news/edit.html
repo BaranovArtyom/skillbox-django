@@ -6,15 +6,15 @@
 </head>
 <body>
     <h2>Edit</h2>
-    <form method="post" action="">
+    <form method="post">
         {% csrf_token %}
-        {{ news_form }}
+        {{ news_form.as_p }}
         <button type="submit">Save</button>
     </form>
-    <form method="post" action="">
+    <form method="post">
         {% csrf_token %}
-        {{ comment_form }}
-        <a href="add_comment.html"><button>Add comment</button></a>
+            {{ comment_form.as_p }}
+        <button type="submit">Add comment</button>
     </form>
 </body>
 </html>

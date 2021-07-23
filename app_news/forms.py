@@ -11,9 +11,24 @@ class AddNewsForm(forms.ModelForm):
         model = News
         fields = '__all__'
 
+
+class AddCommentAuthenticForm(forms.ModelForm):
+
+    class Meta:
+        model = Comment
+        fields = '__all__'
+        exclude = ['news', 'user', 'user_name']
+
+
 class AddCommentForm(forms.ModelForm):
 
     class Meta:
         model = Comment
         fields = '__all__'
-        exclude =['news']
+        exclude = ['news', 'user']
+
+
+
+class AuthForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput)
