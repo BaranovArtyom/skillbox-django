@@ -29,7 +29,6 @@ class AddCommentForm(forms.ModelForm):
         exclude = ['news', 'user']
 
 
-
 class AuthForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)

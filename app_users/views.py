@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from app_users.forms import *
+from app_users.models import Profile
 import datetime
 from django.contrib.auth.views import LoginView, LogoutView
 
@@ -72,7 +73,14 @@ def another_register_view(request):
     if request.method == 'POST':
         form = ExtendedRegisterForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            date_of_birth = form.cleaned_data.get('date_of_birth')
+            city = form.cleaned_data.get('city')
+            Profile.objects.create(
+                user=user,
+                city=city,
+                date_of_birth=date_of_birth
+            )
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)

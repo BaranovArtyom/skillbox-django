@@ -9,10 +9,14 @@
     <h2>Logining</h2>
     {% if request.user.is_authenticated %}
         <h3>Welcome, {{ request.user.username }} broh!</h3>
+        <h4>You was born: {{ request.user.profile.date_of_birth }}</h4>
+        <h4>In fackin {{ request.user.profile.city }}</h4>
     {% else %}
         <h3>Not authorized imposter!!</h3>
         <a href="{% url 'login' %}">Go and login retardo!</a>
     {% endif %}
+
+
 {#    <form action="https://jsonplaceholder.typicode.com/posts" method="POST">#}
 {#        <select name="region" size="1">#}
 {#            {% for region in regions %}#}
