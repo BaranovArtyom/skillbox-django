@@ -22,5 +22,6 @@ urlpatterns = [
     path('profiles/', include('app_profiles.urls')),
     path('news/', include('app_news.urls')),
     path('users/', include('app_users.urls')),
+    path('employment/', include('app_employment.urls')),
 
 ]
