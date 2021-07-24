@@ -17,6 +17,3 @@ class Comment(models.Model):
     text = models.CharField(max_length=1000)
     news = models.ForeignKey('News', default=None, null=True, on_delete=models.CASCADE)
     user = models.ForeignKey(User, default=None, null=True, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.title
