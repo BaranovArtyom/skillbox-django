@@ -1,3 +1,12 @@
 from django.contrib import admin
+from .models import *
 
-# Register your models here.
+
+@admin.register(Item)
+class ItemAdmin(admin.ModelAdmin):
+    list_display = ('code', 'price')
+
+
+@admin.register(File)
+class FileAdmin(admin.ModelAdmin):
+    list_display = ('id', 'created_at')

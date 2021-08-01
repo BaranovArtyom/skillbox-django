@@ -16,6 +16,7 @@ class NewsListView(ListView):
     context_object_name = 'news_list'
     queryset = News.objects.order_by('created_at')
 
+
 class AddNewsFormView(View):
     def get(self, request):
         news_form = AddNewsForm
@@ -29,6 +30,7 @@ class AddNewsFormView(View):
             return HttpResponseRedirect('/news')
         return render(request, 'news/add_news.html', context={'news_form': news_form})
 
+
 class NewsDetailView(DetailView):
     model = News
     template_name = 'news/news_detail.html'
@@ -40,6 +42,7 @@ class NewsDetailView(DetailView):
         context['comments'] = Comment.objects.filter(news=obj)
 
         return context
+
 
 class EditNewsFormView(View):
     def get(self, request, news_id):
