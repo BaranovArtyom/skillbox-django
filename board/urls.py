@@ -26,5 +26,7 @@ urlpatterns = [
     path('users/', include('app_users.urls')),
     path('employment/', include('app_employment.urls')),
     path('media/', include('app_media.urls')),
+    path('pages/', include('app_pages.urls')),
+    path('api/', include('app_rest.urls')),
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)# Для загрузки файлов
